@@ -70,7 +70,7 @@ export default function Navbar() {
                     <a class='dropdown-item' href='/addItems'>
                       Add
                     </a>
-                    <a class='dropdown-item' href='/login'>
+                    <a class='dropdown-item' href='/showi'>
                       Show
                     </a>
                   </div>

@@ -2,7 +2,8 @@ const express = require("express");
 const {
   getMentors,
   getMentor,
-  createMentor,
+  getMe,
+  addmentor,
   updateMentor,
   deleteMentor,
   getMentorsInRadius,
@@ -25,18 +26,18 @@ router.use("/:mentorId/reviews", reviewRouter);
 
 router.route("/radius/:zipcode/:distance").get(getMentorsInRadius);
 
-router
-  .route("/:id/photo")
-  .put(protect, authorize("mentor", "admin"), mentorPhotoUpload);
+router.route("/photo").post(protect, mentorPhotoUpload);
 
 router
   .route("/")
-  .get(advancedResults(Mentor, "course"), getMentors)
-  .post(protect, authorize("mentor", "admin"), createMentor);
+  .get(advancedResults(Mentor, { path: "category" }), getMentors)
+  .post(protect, addmentor);
+
+router.route("/me").get(protect, getMe);
 
 router
   .route("/:id")
-  .get(getMentor)
+  .get(protect, getMentor)
   .put(protect, authorize("mentor", "admin"), updateMentor)
   .delete(protect, authorize("mentor", "admin"), deleteMentor);
 

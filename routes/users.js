@@ -5,6 +5,8 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  getAllUser,
+  getMentors,
 } = require("../controllers/users");
 
 const User = require("../models/User");
@@ -17,6 +19,10 @@ router.use(protect);
 router.use(authorize("admin"));
 
 router.route("/").get(advancedResults(User), getUsers).post(createUser);
+
+router.route("/mentor").get(advancedResults(User), getMentors);
+
+router.route("/user").get(advancedResults(User), getAllUser);
 
 router.route("/:id").get(getUser).put(updateUser).delete(deleteUser);
 

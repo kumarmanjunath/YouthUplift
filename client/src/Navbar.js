@@ -67,11 +67,14 @@ export default function Navbar() {
                     class='dropdown-menu btn btn-success'
                     aria-labelledby='dropdownMenuLink'
                   >
-                    <a class='dropdown-item' href='/mlogin'>
+                    <a class='dropdown-item' href='/login/mentor'>
                       Mentors
                     </a>
-                    <a class='dropdown-item' href='/login'>
+                    <a class='dropdown-item' href='/login/user'>
                       Student
+                    </a>
+                    <a class='dropdown-item' href='/login/admin'>
+                      Admin
                     </a>
                   </div>
                 </div>

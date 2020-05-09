@@ -136,40 +136,23 @@ exports.getMentorsInRadius = asyncHandler(async (req, res, next) => {
   });
 });
 
-//@desc  upload photo for mentor
-//@route  PUT /api/v1/mentors/:id/photo
-//@access  Private
+// @desc      Upload photo for mentor
+// @route     Post /api/v1/tutor/photo
+// @access    Private
 exports.mentorPhotoUpload = asyncHandler(async (req, res, next) => {
-  const mentor = await Mentor.findById(req.params.id);
-  if (!mentor) {
-    return next(
-      new ErrorResponse(`Mentor not found with id of ${req.params.id}`, 404)
-    );
-  }
-
-  //make sure user is mentor owner
-  if (mentor.user.toString() !== req.user.id && req.user.role !== "admin") {
-    return next(
-      new ErrorResponse(
-        `User ${req.params.id} is not authorized to update this mentor`,
-        401
-      )
-    );
-  }
-
   if (!req.files) {
     return next(new ErrorResponse(`Please upload a file`, 400));
   }
 
   const file = req.files.file;
+  console.log(file);
 
-  //Make sure the image is a photo
-
+  // Make sure the image is a photo
   if (!file.mimetype.startsWith("image")) {
     return next(new ErrorResponse(`Please upload an image file`, 400));
   }
 
-  //check file size
+  // Check filesize
   if (file.size > process.env.MAX_FILE_UPLOAD) {
     return next(
       new ErrorResponse(
@@ -178,19 +161,57 @@ exports.mentorPhotoUpload = asyncHandler(async (req, res, next) => {
       )
     );
   }
-  // create custom filename
-  file.name = `photo_${mentor._id}${path.parse(file.name).ext}`;
 
-  file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`, async (err) => {
+  file.mv(`${__dirname}/../client/public/uploads/${file.name}`, async (err) => {
     if (err) {
       console.error(err);
       return next(new ErrorResponse(`Problem with file upload`, 500));
     }
-    await Mentor.findByIdAndUpdate(req.params.id, { photo: file.name });
+
+    const files = `/uploads/${file.name}`;
 
     res.status(200).json({
       success: true,
-      data: file.name,
+      data: files,
     });
+  });
+});
+
+exports.addmentor = asyncHandler(async (req, res, next) => {
+  // Add user to req,body
+  req.body.user = req.user.id;
+
+  // Check for published doctor
+  const publishedTutor = await Mentor.findOne({ user: req.user.id });
+
+  // If the user is not an admin, they can only add one doctor
+  if (publishedTutor && req.user.role !== "admin") {
+    return next(
+      new ErrorResponse(
+        `The user with ID ${req.user.id} has already published a doctor`,
+        400
+      )
+    );
+  }
+  // req.body.photo = req.body.photo;
+  const mentor = await Mentor.create(req.body);
+  res.status(200).json({
+    success: true,
+    data: mentor,
+  });
+});
+
+// @desc      Get current logged in user
+// @route     POST /api/v1/auth/me
+// @access    Private
+exports.getMe = asyncHandler(async (req, res, next) => {
+  const mentor = await Mentor.findOne({ user: req.user.id }).populate({
+    path: "professions",
+    select: "catname",
+  });
+
+  res.status(200).json({
+    success: true,
+    data: mentor,
   });
 });

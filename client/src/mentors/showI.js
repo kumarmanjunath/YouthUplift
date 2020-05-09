@@ -1,104 +1,189 @@
 import React, { Component } from "react";
-import "../CSS/farm.css";
+// import "../CSS/donor.css";
 
-export default class ShowI extends Component {
+import axios from "axios";
+
+export default class addDonors extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mentor: {},
+      profession: {},
+    };
+  }
+  componentDidMount = async () => {
+    const token = sessionStorage.getItem("token");
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+      const result = await axios.get(
+        `http://localhost:5000/api/v1/mentors/me`,
+
+        config
+      );
+      this.setState({
+        mentor: result.data.data,
+        profession: result.data.data.professions,
+      });
+      console.log(result.data.data);
+    } catch (err) {
+      // console.log("Can't load the items");
+    }
+  };
+
   render() {
+    const {
+      description,
+      fname,
+      // specialization,
+      // catname,
+      phone,
+      experience,
+      email,
+      address,
+      photo,
+    } = this.state.mentor;
+    console.log(this.state.profession.catname);
     return (
-      <div>
-        <section>
-          <div id='portfolio'>
-            <div class='container showtop  login-second '>
-              <div class='page-title text-center'>
-                <h1>Products</h1>
-
-                <hr class='pg-titl-bdr-btm' />
-              </div>
-              <div class='row'>
-                <div class='col-lg-12 '>{/* categotize */}</div>
-              </div>
-
-              <div class='row' id='' style={{ opacity: 1 }}>
-                {/*  */}
-                <div class='container pt-4'>
-                  <div class=' tabletrans '>
-                    <div class='well'>
-                      <div class='row mb-5'>
-                        <div class='col-md-6'>
-                          <div class='pull-right'>
-                            <a
-                              href='/farmer/addItems'
-                              class='btn btn-info btn-sm p-2'
-                            >
-                              Add Item
-                            </a>
-                          </div>
-                        </div>
-
-                        <div class='pull-left'>
-                          <a href='/FHome' class='btn btn-info btn-sm p-2'>
-                            Back to Home
-                          </a>
+      <div className='container itmtop'>
+        <div className=''>
+          {/* <div className="jumbotron col-md-6 col-sm-5 " id="login-first"></div> */}
+          <div className='' id='login-second'>
+            <div className='page-wrapper p-t-50 p-b-50'>
+              <div className='wrapper wrapper--w900 '>
+                <div className='card cardH card-6 bg-dark'>
+                  <div className='card-heading m-4 '>
+                    <h2 className='title address3 text-dark'>Mentors</h2>
+                  </div>
+                  <div className='card-body'>
+                    <form
+                      // onSubmit={this.onSubmit}
+                      encType='multipart/form-data'
+                    >
+                      <img src={`${photo}`} className='img1' alt='' />
+                      <div className='form-row frow'>
+                        <div className='name'>Mentor Name:</div>
+                        <div className='value'>
+                          <input
+                            className='input--style-6'
+                            type='text'
+                            name='name'
+                            value={fname}
+                            // onChange={this.onChange}
+                          />
                         </div>
                       </div>
-                      <table class='table table-hover'>
-                        <tr>
-                          <th>
-                            <label>Img</label>
-                          </th>
-                          <th>
-                            {" "}
-                            <label>Name</label>
-                          </th>
-                          <th>
-                            {" "}
-                            <label>Price</label>
-                          </th>
-                          <th>
-                            {" "}
-                            <label>Stock</label>
-                          </th>
+                      <div className='form-row frow'>
+                        <div className='name'>profession:</div>
+                        <div className='value'>
+                          <input
+                            className='input--style-6'
+                            type='text'
+                            name='name'
+                            value={this.state.profession.catname}
+                            // onChange={this.onChange}
+                          />
+                        </div>
+                      </div>
 
-                          <th>
-                            {" "}
-                            <label className='d-flex justify-content-center'>
-                              Actions
-                            </label>
-                          </th>
-                        </tr>
+                      <div className='form-row frow'>
+                        <div className='name'>Experience</div>
+                        <div className='value'>
+                          <div className='input-group'>
+                            <input
+                              className='input--style-6'
+                              type='text'
+                              name='experience'
+                              placeholder=''
+                              value={experience}
+                              // onChange={this.onChange}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className='form-row frow'>
+                        <div className='name'>address</div>
+                        <div className='value'>
+                          <div className='input-group'>
+                            <input
+                              className='input--style-6'
+                              type='text'
+                              name='duration'
+                              placeholder=''
+                              value={address}
+                              // onChange={this.onChange}
+                            />
+                          </div>
+                        </div>
+                      </div>
 
-                        <tr>
-                          <td className='tbld'>
-                            <img
-                              src='http://starkovtattoo.spb.ru/images/200/DSC100224440.png'
-                              alt=''
-                              width='150px'
-                              height='100px'
-                            ></img>
-                          </td>
-                          <td className='tbld'>2</td>
-                          <td className='tbld'>3</td>
-                          <td className='tbld'>g</td>
-
-                          <td className='d-flex justify-content-center tbld'>
-                            <div className='btn-group '>
-                              <a href='' class='btn btn-danger btn-md mr-5'>
-                                <i class='fa fa-trash-o'></i>
-                              </a>
-
-                              <a href='' class='btn btn-info btn-md'>
-                                <i class='fa fa-edit'></i>
-                              </a>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
+                      <div className='form-row frow'>
+                        <div className='name'>Email</div>
+                        <div className='value'>
+                          <div className='input-group'>
+                            <input
+                              className='input--style-6'
+                              type='email'
+                              name='email'
+                              placeholder=''
+                              value={email}
+                              // onChange={this.onChange}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className='form-row frow'>
+                        <div className='name'>Contact</div>
+                        <div className='value'>
+                          <div className='input-group'>
+                            <input
+                              className='input--style-6'
+                              type='text'
+                              name='contact'
+                              placeholder=''
+                              value={phone}
+                              // onChange={this.onChange}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className='form-row frow'>
+                        <div className='name'>description</div>
+                        <div className='value'>
+                          <div className='input-group'>
+                            <input
+                              className='input--style-6'
+                              type='text'
+                              name='fees'
+                              placeholder=''
+                              value={description}
+                              // onChange={this.onChange}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className='card-footer'>
+                        <button
+                          className='btn btn--radius-2 btn-dark'
+                          type='submit'
+                          href='/mentor/edit'
+                        >
+                          {" "}
+                          Edit
+                        </button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
     );
   }
