@@ -14,15 +14,22 @@ exports.getMentors = asyncHandler(async (req, res, next) => {
 //@route  GET  /api/v1/bootcams/:id
 //@access  Public
 exports.getMentor = asyncHandler(async (req, res, next) => {
-  const mentor = await Mentor.findById(req.params.id);
+  const mentor = await Mentor.findById(req.params.mentorId);
 
   if (!mentor) {
     return next(
-      new ErrorResponse(`Mentor not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(
+        `Mentor not found with id of ${req.params.mentorId}`,
+        404
+      )
     );
   }
 
-  res.status(200).json({ success: true, data: mentor });
+  res.status(200).json({
+    success: true,
+    count: mentor.length,
+    data: mentor,
+  });
 });
 
 //@desc  create new mentor

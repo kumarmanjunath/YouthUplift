@@ -10,6 +10,8 @@ import ShowStudents from "./ShowPatients";
 import addDonors from "./addDonors";
 import Category from "./Category";
 import addUser from "./AddUser";
+import addmentordetail from "../admin/addmentordetail";
+import showallmentordetail from "../admin/showallmentordetail";
 
 function App() {
   return (
@@ -25,6 +27,11 @@ function App() {
           <Route path={"/main/category"} component={Category} />
           <Route path={"/main/addTutors"} component={addDonors} />
           <Route path={"/main/addUser"} component={addUser} />
+          <Route path={"/main/addmentordetail"} component={addmentordetail} />
+          <Route
+            path={"/main/showallmentordetail"}
+            component={showallmentordetail}
+          />
         </Switch>
       </div>
     </Router>

@@ -1,11 +1,11 @@
 import React from "react";
 import avatar from "./components/img/avataaars.svg";
-import img1 from "./components/img/portfolio/cabin.png";
-import img2 from "./components/img/portfolio/cake.png";
-import img3 from "./components/img/portfolio/circus.png";
-import img4 from "./components/img/portfolio/game.png";
-import img5 from "./components/img/portfolio/safe.png";
-import img6 from "./components/img/portfolio/submarine.png";
+import img1 from "./components/img/portfolio/cabin1.jpg";
+import img2 from "./components/img/portfolio/cake1.jpg";
+import img3 from "./components/img/portfolio/circus1.jpg";
+import img4 from "./components/img/portfolio/game1.jpg";
+import img5 from "./components/img/portfolio/safe1.jpg";
+import img6 from "./components/img/portfolio/submarine1.jpg";
 import Navbar from "./Navbar";
 
 function Homepage() {
@@ -37,7 +37,7 @@ function Homepage() {
       <section className='page-section portfolio bg-dark' id='portfolio'>
         <div className='container'>
           <h2 className='page-section-heading text-center text-uppercase text-light mb-0'>
-            Portfolio
+            Professional Mentors
           </h2>
 
           <div className='divider-custom divider-light'>

@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <div>
       <nav
-        className='navbar navbar-expand-lg bg-secondary text-uppercase fixed-top'
+        className='navbar navbar-expand-lg bg-light text-uppercase fixed-top'
         id='mainNav'
       >
         <div className='container'>
@@ -29,7 +29,7 @@ export default function Navbar() {
                   className='nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger'
                   href='#portfolio'
                 >
-                  Portfolio
+                  Mentors
                 </a>
               </li>
               <li className='nav-item mx-0 mx-lg-1'>
@@ -50,9 +50,9 @@ export default function Navbar() {
               </li>
 
               <li>
-                <div class='dropdown'>
+                <div class='dropdown' style={{ marginLeft: "50px" }}>
                   <a
-                    class='btn btn-primary dropdown-toggle'
+                    class='btn  dropdown-toggle'
                     href='#'
                     role='button'
                     id='dropdownMenuLink'
@@ -65,6 +65,7 @@ export default function Navbar() {
 
                   <div
                     class='dropdown-menu btn btn-success'
+                    style={{ marginTop: "40px", marginLeft: "-50px" }}
                     aria-labelledby='dropdownMenuLink'
                   >
                     <a class='dropdown-item' href='/login/mentor'>

@@ -78,7 +78,7 @@ exports.getAllUser = asyncHandler(async (req, res, next) => {
 });
 
 // @desc      Get  user
-// @route     GET /api/v1/auth/users/vendors
+// @route     GET /api/v1/auth/users/mentors
 // @access    Private/Admin
 exports.getMentors = asyncHandler(async (req, res, next) => {
   const user = await User.find({ role: "mentor" });

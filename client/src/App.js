@@ -6,6 +6,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import "../src/App.css";
 import "./mentors/MApp.css";
+import "./CSS/App.css";
 // import "./Signup.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Navbar from "./Navbar";
@@ -30,6 +31,8 @@ import Functions from "./mentors/Functions";
 import MFunctions from "./admin/MFunctions";
 
 import UFunctions from "./student/UFunctions";
+
+import Forgot from "./components/auth/Forgotpsswrd";
 
 class App extends React.Component {
   render() {
@@ -59,6 +62,7 @@ class App extends React.Component {
             <Route path={"/main/"} component={MFunctions} />
             <Route role='user' path={"/user/"} component={UFunctions} />
             <Route role='mentor' path={"/mentor/"} component={Functions} />
+            <Route path={"/resett"} component={Forgot} />
           </Switch>
         </div>
       </Router>

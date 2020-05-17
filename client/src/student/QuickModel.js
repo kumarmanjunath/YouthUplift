@@ -65,7 +65,7 @@ export default class QuickModel extends Component {
                                 <h4>Experience: {experience}-Years</h4>
                                 <h4>Contact: {phone}</h4>
 
-                                <h4>Address: ₹{address}</h4>
+                                <h4>Address: {address}</h4>
                               </i>
                               <div className='action '>
                                 <button

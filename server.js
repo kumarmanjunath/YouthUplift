@@ -20,6 +20,7 @@ const mentors = require("./routes/mentors");
 const courses = require("./routes/courses");
 const auth = require("./routes/auth");
 const users = require("./routes/users");
+const public = require("./routes/public");
 const reviews = require("./routes/reviews");
 const category = require("./routes/category");
 
@@ -47,6 +48,7 @@ app.use("/api/v1/mentors", mentors);
 app.use("/api/v1/courses", courses);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/users", users);
+app.use("/api/v1/public", public);
 app.use("/api/v1/reviews", reviews);
 app.use("/api/v1/category", category);
 

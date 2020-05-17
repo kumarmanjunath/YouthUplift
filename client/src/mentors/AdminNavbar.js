@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import logo from "../../assets/logo.png";
 // import AdminHome from "./AdminHome";
 import axios from "axios";
+import "../CSS/Home.css";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ export default class Navbar extends Component {
       await axios.get("http://localhost:5000/api/v1/auth/logout", config);
       sessionStorage.removeItem("token", "isAuth");
       alert("Logged Out");
+
       this.setState({
         isAuth: false,
       });
@@ -88,65 +90,64 @@ export default class Navbar extends Component {
               className='dropdown-menu'
               // aria-labelledby="navbarDropdown"
             >
-              {/* <a
-                className=""
-                href="/vendor/Profile"
-                id="navbarDropdown"
-                role="button"
+              <a
+                className=''
+                href='/mentor/Profile'
+                id='navbarDropdown'
+                role='button'
                 // data-toggle="dropdown"
                 style={{ textDecoration: "none" }}
               >
                 <img
-                  width="50"
-                  height="50"
-                  className="rounded-circle content-center"
+                  width='50'
+                  height='50'
+                  className='rounded-circle content-center'
                 />{" "}
                 username
-              </a> */}
-
-              {/* <div
-                className="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
-              > */}
-              {/* <a className="dropdown-item" href="/farmer/Prof">
-                  Profile
-                </a> */}
-              {/* <a className="dropdown-item" href="/vendor/ProfileEdit">
-                  Profile
-                </a> */}
-              <a
-                type='submit'
-                className='dropdown-item'
-                poiter='cursor'
-                onClick={this.onLogout}
+              </a>{" "}
+              <div
+                className='dropdown-menu'
+                aria-labelledby='navbarDropdownMenuLink'
               >
-                <span
-                  className='fa fa-sign-out fa-2x'
-                  style={{ color: "#f2f2f3  " }}
-                  aria-hidden='true'
-                ></span>
-                Log Out
-              </a>
-              {/* </div> */}
+                {/* <a className="dropdown-item" href="/farmer/Prof">
+                  Profile
+                </a> */}
+                {/* <a className="dropdown-item" href="/vendor/ProfileEdit">
+                  Profile
+                </a> */}
+                <a
+                  type='submit'
+                  className='dropdown-item'
+                  poiter='cursor'
+                  onClick={this.onLogout}
+                >
+                  <span
+                    className='fa fa-sign-out fa-2x'
+                    style={{ color: "#f2f2f3  " }}
+                    aria-hidden='true'
+                  ></span>
+                  Log Out
+                </a>
+              </div>
             </div>
           </li>
         </ul>
       );
     } else {
-      // profile = (
-      //   <a
-      //     type="button"
-      //     className="btn  navbar-toggle-box-collapse d-none d-md-block "
-      //     href="vendor/Login/vendor"
-      //     title="Profile"
-      //   >
-      //     <span
-      //       className="fa fa-user fa-2x top1"
-      //       style={{ color: "#f2f2f3  " }}
-      //       aria-hidden="true"
-      //     ></span>
-      //   </a>
-      // );
+      profile = (
+        <a
+          type='button'
+          className='btn  navbar-toggle-box-collapse d-none d-md-block '
+          href='/login/mentor'
+          title='Profile'
+        >
+          <span
+            className='fa fa-user fa-2x top1'
+            style={{ color: "#f2f2f3  " }}
+            aria-hidden='true'
+          ></span>
+        </a>
+      );
     }
     return (
       <nav className='navbar navbar-default navbar-expand-md fixed-top navbar-trans navf'>
@@ -165,9 +166,9 @@ export default class Navbar extends Component {
             <span></span>
           </button>
           <a className='logo top1' href='/vendor/Home'>
-            {/* <img src={logo} alt='' className=''></img> */}
-            {/* Farm
-            <span className="color-b">Easy</span> */}
+            <a className='navbar-brand js-scroll-trigger' href='#page-top'>
+              <i className='fa fa-handshake-o'></i> Uplift Youths
+            </a>
           </a>
           <button
             type='button'
@@ -189,15 +190,15 @@ export default class Navbar extends Component {
                 </a>
               </li>
 
-              <li className='nav-item dropdown'>
+              <li
+                className='nav-item dropdown'
+                style={{ marginLeft: "150px", marginTop: "-5px" }}
+              >
                 <a
                   className='nav-link dropdown-toggle'
                   href='#'
                   id='navbarDropdown'
                   role='button'
-                  data-toggle='dropdown'
-                  aria-haspopup='true'
-                  aria-expanded='false'
                 >
                   Mentor Details
                 </a>
@@ -205,7 +206,7 @@ export default class Navbar extends Component {
                   <a className='dropdown-item' href='/mentor/addMentors'>
                     Add Mentor
                   </a>
-                  <a className='dropdown-item' href='/mentor/showMentors'>
+                  <a className='dropdown-item' href='/mentor/showMentorsdet'>
                     Show Mentor
                   </a>
                 </div>

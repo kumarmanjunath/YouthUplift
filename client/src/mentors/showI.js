@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import "../CSS/donor.css";
+// import "../CSS/farm.css";
 
 import axios from "axios";
 
@@ -35,6 +36,25 @@ export default class addDonors extends Component {
       // console.log("Can't load the items");
     }
   };
+  onDeleteUser = async (_id, e) => {
+    e.preventDefault();
+    // console.log(user);
+    const token = sessionStorage.getItem("token");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      await axios.delete(`http://localhost:5000/api/v1/mentors/${_id}`, config);
+
+      alert("User Deleted");
+    } catch (err) {
+      console.log("Can't load the items");
+    }
+  };
 
   render() {
     const {
@@ -49,6 +69,7 @@ export default class addDonors extends Component {
       photo,
     } = this.state.mentor;
     console.log(this.state.profession.catname);
+
     return (
       <div className='container itmtop'>
         <div className=''>
@@ -58,7 +79,7 @@ export default class addDonors extends Component {
               <div className='wrapper wrapper--w900 '>
                 <div className='card cardH card-6 bg-dark'>
                   <div className='card-heading m-4 '>
-                    <h2 className='title address3 text-dark'>Mentors</h2>
+                    <h2 className='text-success'>Mentors Details</h2>
                   </div>
                   <div className='card-body'>
                     <form
@@ -72,7 +93,7 @@ export default class addDonors extends Component {
                           <input
                             className='input--style-6'
                             type='text'
-                            name='name'
+                            name='fname'
                             value={fname}
                             // onChange={this.onChange}
                           />
@@ -169,9 +190,8 @@ export default class addDonors extends Component {
                       </div>
                       <div className='card-footer'>
                         <button
-                          className='btn btn--radius-2 btn-dark'
+                          class='btn btn-secondary btn-lg btn-block'
                           type='submit'
-                          href='/mentor/edit'
                         >
                           {" "}
                           Edit

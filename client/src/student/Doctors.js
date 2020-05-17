@@ -66,7 +66,7 @@ class CompanyHome extends Component {
 
         <section className='counts section-bg mt-5'>
           <div className=' container-fluid mt-5' id='product'>
-            <h2> List Of Doctors</h2>
+            <h2> List Of Mentors</h2>
 
             <div className='row'>
               {/* {(!this.state.doctors)(

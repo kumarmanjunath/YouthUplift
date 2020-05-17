@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
+// import "../../Signup.css";
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -164,20 +165,21 @@ class Register extends Component {
 
                   <div class='input'>
                     <div class='input-addon'>
-                      <i class='material-icons'>face</i>
+                      <i class='fa fa-address-card' aria-hidden='true'></i>
+
+                      <input
+                        id='address'
+                        placeholder='Enter Address'
+                        name='address'
+                        type='text'
+                        required
+                        class='validate'
+                        autocomplete='off'
+                        value={this.state.address}
+                        onChange={this.handleInputChange}
+                        required
+                      />
                     </div>
-                    <input
-                      id='address'
-                      placeholder='Enter Address'
-                      name='address'
-                      type='text'
-                      required
-                      class='validate'
-                      autocomplete='off'
-                      value={this.state.address}
-                      onChange={this.handleInputChange}
-                      required
-                    />
                   </div>
 
                   <div class='clearfix'></div>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import logo from "../../assets/logo.png";
 // import MainHome from "./MainHome";
 import axios from "axios";
+import "../CSS/Home.css";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -124,7 +125,7 @@ export default class Navbar extends Component {
         <a
           type='button'
           className='btn  navbar-toggle-box-collapse d-none d-md-block '
-          href='user/Login/user'
+          href='/login/admin'
           title='Profile'
         >
           <span
@@ -155,6 +156,9 @@ export default class Navbar extends Component {
             {/* <img src={logo} alt='' className=''></img> */}
             {/* Farm
             <span className="color-b">Easy</span> */}
+            <a className='navbar-brand js-scroll-trigger' href='#page-top'>
+              <i className='fa fa-handshake-o'></i> Uplift Youths
+            </a>
           </a>
           <button
             type='button'
@@ -175,12 +179,18 @@ export default class Navbar extends Component {
                   Home
                 </a>
               </li>
-              <li className='nav-item'>
+              <li
+                className='nav-item'
+                style={{ marginLeft: "150px", marginTop: "-5px" }}
+              >
                 <a className='nav-link ' href='/main/ShowTutors'>
                   Tutor List
                 </a>
               </li>
-              <li className='nav-item'>
+              <li
+                className='nav-item'
+                style={{ marginLeft: "150px", marginTop: "-5px" }}
+              >
                 <a className='nav-link ' href='/main/ShowStudents'>
                   Student List
                 </a>

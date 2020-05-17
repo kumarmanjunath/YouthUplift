@@ -36,8 +36,8 @@ router
 router.route("/me").get(protect, getMe);
 
 router
-  .route("/:id")
-  .get(protect, getMentor)
+  .route("/:mentorId")
+  .get(getMentor)
   .put(protect, authorize("mentor", "admin"), updateMentor)
   .delete(protect, authorize("mentor", "admin"), deleteMentor);
 

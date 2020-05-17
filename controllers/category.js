@@ -24,7 +24,6 @@ exports.getCategoryTutor = asyncHandler(async (req, res, next) => {
   }
   res.status(200).json({
     success: true,
-    count: mentor.length,
     data: mentor,
   });
 });

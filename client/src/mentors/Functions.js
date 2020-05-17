@@ -8,7 +8,10 @@ import AdminHome from "./AdminHome";
 import AdminNavbar from "./AdminNavbar";
 import addMentors from "./addItem";
 import showMentors from "./showI";
+import Forgotpasswrd from "../components/auth/Forgotpsswrd";
 import editMentor from "./EditDoctor";
+import Footer from "./Footer";
+import showmentordet from "../mentors/showmentordet";
 
 // import Prof from "./Prof";
 // import ProfileEdit from "./ProfileEdit";
@@ -86,12 +89,15 @@ class App extends React.Component {
 
             <Route path={"/mentor/showMentors"} component={showMentors} />
             <Route path={"/mentor/edit"} component={editMentor} />
+            <Route path={"/reset"} component={Forgotpasswrd} />
+            <Route path={"/mentor/showMentorsdet"} component={showmentordet} />
 
             {/* <Route path={"/doctor/Profile"} component={Prof} /> */}
             {/* <Route path={"/doctor/ProfileEdit"} component={ProfileEdit} /> */}
             {/* <Route path={"/doctor/orders"} component={orders} /> */}
           </Switch>
         </div>
+        <Footer />
       </Router>
     );
   }

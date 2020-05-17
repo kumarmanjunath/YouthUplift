@@ -72,13 +72,35 @@ export default class ShowCompany extends Component {
                   <div className=' tabletrans '>
                     <div className='well'>
                       <div className='row mb-5'>
-                        <div className='col-md-6'>
-                          <div className='pull-right'>
+                        <div className='col-md-3'>
+                          <div className='pull-left'>
                             <a
                               href='/main/addTutors'
                               className='btn btn-info btn-sm p-2'
                             >
                               Add Mentors
+                            </a>
+                          </div>
+                        </div>
+
+                        <div className='col-md-3'>
+                          <div className='pull-left'>
+                            <a
+                              href='/main/addmentordetail'
+                              className='btn btn-info btn-sm p-2'
+                            >
+                              Add Mentors Details
+                            </a>
+                          </div>
+                        </div>
+
+                        <div className='col-md-3'>
+                          <div className='pull-left'>
+                            <a
+                              href='/main/showallmentordetail'
+                              className='btn btn-info btn-sm p-2'
+                            >
+                              Show Mentors Details
                             </a>
                           </div>
                         </div>

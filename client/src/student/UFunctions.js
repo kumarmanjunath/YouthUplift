@@ -9,6 +9,11 @@ import Category from "./Category";
 import Doctors from "./Doctors";
 import axios from "axios";
 import QuickModel from "./QuickModel";
+import UserProf from "../student/UserProf";
+import editProf from "../student/editProf";
+import profile from "../student/profile";
+import addstudent from "../student/adduserdetail";
+import showstudent from "../student/showuserdetail";
 
 export default class All extends Component {
   state = {
@@ -68,7 +73,7 @@ export default class All extends Component {
               render={(props) => (
                 <CompanyHome
                   {...props}
-                  user={this.state.user}
+                  user={this.state.users}
                   getMentors={this.getMentors}
                   // getCategory={this.getCategory}
                   mentors={this.state.mentors}
@@ -82,7 +87,7 @@ export default class All extends Component {
               path={"/user/Category"}
               render={(props) => (
                 <Category
-                  user={this.state.user}
+                  user={this.state.users}
                   getMentors={this.getMentors}
                   getCategory={this.getCategory}
                   mentors={this.state.mentors}
@@ -92,6 +97,19 @@ export default class All extends Component {
             />
             <Route path={"/user/mentors"} component={Doctors} />
             <Route path={"/user/ShowMentor"} component={QuickModel} />
+            <Route
+              role='user'
+              path={"/user/userprofile"}
+              component={UserProf}
+            />
+            <Route
+              role='user'
+              path={"/user/editprofile/:id"}
+              component={editProf}
+            />
+            <Route role='user' path={"/profile"} component={profile} />
+            <Route path={"/user/adddetail"} component={addstudent} />
+            <Route path={"/user/showdetail"} component={showstudent} />
           </Switch>
         </div>
       </Router>

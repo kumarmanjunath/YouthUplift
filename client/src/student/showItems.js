@@ -15,7 +15,7 @@ export default class showItems extends Component {
     });
   };
   render() {
-    const { _id, photo, fname, experience } = this.state.men;
+    const { _id, photo, fname, experience, address } = this.state.men;
 
     // console.log(this.props);
     return (
@@ -30,7 +30,7 @@ export default class showItems extends Component {
               <h3>{fname}</h3>
               <h4>{this.state.profession}</h4>
 
-              <h4>{experience}</h4>
+              <h4>{address}</h4>
 
               <button
                 type='button'
