@@ -124,7 +124,7 @@ export default class Navbar extends Component {
         <a
           type='button'
           className='btn  navbar-toggle-box-collapse d-none d-md-block '
-          href='/login/user'
+          href='/'
           title='Profile'
         >
           <span
@@ -191,8 +191,25 @@ export default class Navbar extends Component {
                 className='nav-item'
                 style={{ marginLeft: "150px", marginTop: "-5px" }}
               >
+                <a className='nav-link ' href='/user/sendmail'>
+                  send maii
+                </a>
+              </li>
+
+              <li
+                className='nav-item'
+                style={{ marginLeft: "150px", marginTop: "-5px" }}
+              >
                 <a className='nav-link ' href='/user/showdetail'>
                   Show Details
+                </a>
+              </li>
+              <li
+                className='nav-item'
+                style={{ marginLeft: "150px", marginTop: "-5px" }}
+              >
+                <a className='nav-link ' href='/user/showarticle'>
+                  Show Article
                 </a>
               </li>
             </ul>

@@ -116,9 +116,9 @@ export default class ShowCompany extends Component {
                       </div>
                       <table className='table table-hover'>
                         <tr>
-                          <th>
+                          {/* <th>
                             <label className='text-dark'>Img</label>
-                          </th>
+                          </th> */}
                           <th>
                             {" "}
                             <label className='text-dark'>Mentor Name</label>
@@ -141,14 +141,14 @@ export default class ShowCompany extends Component {
                         </tr>
                         {this.state.mentors.map((doc) => (
                           <tr>
-                            <td className='tbld'>
+                            {/* <td className='tbld'>
                               <img
                                 src={`data:image/png;base64,${doc.img}`}
                                 alt=''
                                 width='150px'
                                 height='100px'
                               ></img>
-                            </td>
+                            </td> */}
                             <td className='tbld text-dark'>{doc.name}</td>
                             <td className='tbld text-dark'>{doc.address}</td>
                             <td className='tbld text-dark'>{doc.email}</td>

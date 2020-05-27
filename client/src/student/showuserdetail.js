@@ -34,9 +34,35 @@ export default class addDonors extends Component {
       // console.log("Can't load the items");
     }
   };
+  onDeleteUser = async (_id) => {
+    // e.preventDefault();
+    console.log("Inside Delete");
+    console.log(this.state.student._id);
+    const userId = this.state.student._id;
+    // console.log(user);
+    const token = sessionStorage.getItem("token");
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    try {
+      await axios.delete(
+        `http://localhost:5000/api/v1/public/${userId}`,
+        config
+      );
+
+      alert("Student Details Deleted");
+    } catch (err) {
+      console.log("Can't load the items");
+    }
+  };
 
   render() {
-    const { name, address, phone, dob, email, photo } = this.state.student;
+    const { address, phone, dob, email, photo } = this.state.student;
+    console.log(this.state.student);
 
     return (
       <div className='container itmtop'>
@@ -131,14 +157,13 @@ export default class addDonors extends Component {
                       </div>
 
                       <div className='card-footer'>
-                        <button
-                          class='btn btn-secondary btn-lg btn-block'
-                          type='submit'
-                          href='/mentor/edit'
+                        <a
+                          href=''
+                          className='btn btn-danger btn-md mr-5'
+                          onClick={(e) => this.onDeleteUser("_id")}
                         >
-                          {" "}
-                          Edit
-                        </button>
+                          <i className='fa fa-trash-o'></i>Delete
+                        </a>
                       </div>
                     </form>
                   </div>

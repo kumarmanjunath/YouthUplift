@@ -54,14 +54,16 @@ class AdminHome extends Component {
                 data-aos='fade-up'
               >
                 <div className='count-box counter-up animated swing'>
-                  <i
-                    className='fa fa-smile-o fa-5x'
-                    style={{ color: "#20b38e" }}
-                  ></i>
-                  <p>
-                    <span className='counter-up animated swing'>{}</span>
-                  </p>
-                  <p>Students</p>
+                  <a className='dropdown-item' href='/mentor/addMentors'>
+                    <i
+                      className='fa fa-user-secret fa-5x'
+                      style={{ color: "#20b38e" }}
+                    ></i>
+                    <p>
+                      <span className='counter-up animated swing'>{}</span>
+                    </p>
+                    <p>Add Mentor Details</p>
+                  </a>
                 </div>
               </div>
 
@@ -71,14 +73,16 @@ class AdminHome extends Component {
                 data-aos-delay='200'
               >
                 <div className='count-box counter-up animated swing'>
-                  <i
-                    className='fa fa-medkit fa-5x'
-                    style={{ color: "#c042ff" }}
-                  ></i>
-                  <p>
-                    <span className='counter-up animated swing'></span>
-                  </p>
-                  <p>Advice</p>
+                  <a className='dropdown-item' href='/mentor/showMentors'>
+                    <i
+                      className='fa fa-eye fa-5x'
+                      style={{ color: "#c042ff" }}
+                    ></i>
+                    <p>
+                      <span className='counter-up animated swing'></span>
+                    </p>
+                    <p>Show Mentor Details</p>
+                  </a>
                 </div>
               </div>
 
@@ -88,16 +92,18 @@ class AdminHome extends Component {
                 data-aos-delay='400'
               >
                 <div className='count-box counter-up animated swing'>
-                  <i
-                    className='fa fa-comments fa-5x'
-                    style={{ color: "#46d1ff" }}
-                  ></i>
-                  <p>
-                    <span className='counter-up animated swing'>
-                      <i></i>
-                    </span>
-                  </p>
-                  <p>Communication</p>
+                  <a className='dropdown-item' href='/mentor/publish'>
+                    <i
+                      className='fa fa-envelope-open fa-5x'
+                      style={{ color: "#46d1ff" }}
+                    ></i>
+                    <p>
+                      <span className='counter-up animated swing'>
+                        <i></i>
+                      </span>
+                    </p>
+                    <p>Publish Article</p>
+                  </a>
                 </div>
               </div>
 
@@ -107,15 +113,17 @@ class AdminHome extends Component {
                 data-aos-delay='600'
               >
                 <div className='count-box counter-up animated swing'>
-                  <i
-                    className='fa fa-users fa-5x'
-                    style={{ color: "#ffb459" }}
-                  ></i>
-                  <p>
-                    {" "}
-                    <span className='counter-up animated swing'></span>
-                  </p>
-                  <p>Services</p>
+                  <a className='dropdown-item' href='/mentor/publish'>
+                    <i
+                      className='fa fa-eye fa-5x'
+                      style={{ color: "#ffb459" }}
+                    ></i>
+                    <p>
+                      {" "}
+                      <span className='counter-up animated swing'></span>
+                    </p>
+                    <p>Show Article</p>
+                  </a>
                 </div>
               </div>
             </div>

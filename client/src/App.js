@@ -7,6 +7,7 @@ import Register from "./components/auth/Register";
 import "../src/App.css";
 import "./mentors/MApp.css";
 import "./CSS/App.css";
+import contact from "./Contact";
 // import "./Signup.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import Navbar from "./Navbar";
@@ -63,6 +64,7 @@ class App extends React.Component {
             <Route role='user' path={"/user/"} component={UFunctions} />
             <Route role='mentor' path={"/mentor/"} component={Functions} />
             <Route path={"/resett"} component={Forgot} />
+            <Route path={"/contact"} component={contact} />
           </Switch>
         </div>
       </Router>

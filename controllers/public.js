@@ -94,18 +94,18 @@ exports.updatePublic = asyncHandler(async (req, res, next) => {
 // @route     DELETE /api/v1/public/:publicId
 // @access    Private
 exports.deletePublic = asyncHandler(async (req, res, next) => {
-  const public = await Vendor.find({ user: req.params.publicId });
+  const public = await Public.findById(req.params.publicId);
 
   if (!public) {
     return next(
       new ErrorResponse(
-        `Vendor not found with id of ${req.params.publicId}`,
+        `student not found with id of ${req.params.publicId}`,
         404
       )
     );
   }
 
-  // Make sure user is public owner
+  // Make sure user is student owner
   if (public.user.toString() !== req.user.id && req.user.role !== "admin") {
     return next(
       new ErrorResponse(

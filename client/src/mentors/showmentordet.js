@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../CSS/donor.css";
 import axios from "axios";
+import { Redirect, Link } from "react-router-dom";
+import { browserHistory } from "react-router";
 
 export default class Showcenter extends Component {
   constructor(props) {
@@ -8,6 +10,7 @@ export default class Showcenter extends Component {
 
     this.state = {
       mentors: [this.props],
+      isAuth: true,
     };
   }
 
@@ -35,9 +38,10 @@ export default class Showcenter extends Component {
   };
   // console.log(this.props.location.state.user);
 
-  onDeleteUser = async (_id) => {
-    // e.preventDefault();
-    console.log(this._id.value);
+  onDeleteUser = async (_id, e) => {
+    e.preventDefault();
+    const userId = this.state.mentors._id;
+    console.log(this.state.mentors._id);
     // console.log(user);
     const token = sessionStorage.getItem("token");
     const config = {
@@ -48,18 +52,23 @@ export default class Showcenter extends Component {
     };
 
     try {
-      await axios.delete(`http://localhost:5000/api/v1/mentors/${_id}`, config);
+      await axios.delete(
+        `http://localhost:5000/api/v1/mentors/${userId}`,
+        config
+      );
 
       alert("User Deleted");
+      // this.context.router.history.push("/mentor/addMentors");
+      // browserHistory.push("/mentor/addMentors");
+      // this.context.router.history.push("/mentor/addMentors");
+      this.props.history.push("/mentor/addMentors");
     } catch (err) {
       console.log("Can't load the items");
     }
   };
-  mentordet = () => {
-    return <span>{this.state.mentors.fname}</span>;
-  };
+
   render() {
-    console.log(this.state.mentors.fname);
+    // console.log(this.state.mentors.fname);
     return (
       <div>
         <section>
@@ -151,7 +160,9 @@ export default class Showcenter extends Component {
                                   href=''
                                   className='btn btn-danger btn-md mr-5'
                                   value={this.state.mentors._id}
-                                  onClick={this.onDeleteUser(this)}
+                                  onClick={(e) =>
+                                    this.onDeleteUser(this.state.mentors._id, e)
+                                  }
                                 >
                                   <i className='fa fa-trash-o'></i>
                                 </a>

@@ -6,7 +6,7 @@ import CompanyHome from "./CompanyHome";
 // import fRegistration from "./Registration";
 import CompanyNavbar from "./CompanyNavbar";
 import Category from "./Category";
-import Doctors from "./Doctors";
+import Doctors from "./Mentors";
 import axios from "axios";
 import QuickModel from "./QuickModel";
 import UserProf from "../student/UserProf";
@@ -14,6 +14,8 @@ import editProf from "../student/editProf";
 import profile from "../student/profile";
 import addstudent from "../student/adduserdetail";
 import showstudent from "../student/showuserdetail";
+import showarticle from "../student/showarticle";
+import sendmail from "./mailsend";
 
 export default class All extends Component {
   state = {
@@ -110,6 +112,8 @@ export default class All extends Component {
             <Route role='user' path={"/profile"} component={profile} />
             <Route path={"/user/adddetail"} component={addstudent} />
             <Route path={"/user/showdetail"} component={showstudent} />
+            <Route path={"/user/showarticle"} component={showarticle} />
+            <Route path={"/user/sendmail"} component={sendmail} />
           </Switch>
         </div>
       </Router>

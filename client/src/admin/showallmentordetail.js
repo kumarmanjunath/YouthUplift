@@ -9,6 +9,7 @@ export default class ShowCompany extends Component {
     // this.getUser = this.getUser;
     this.state = {
       mentors: [],
+
       //   profession: [],
     };
     // this.onLogout = this.onLogout.bind(this);
@@ -57,6 +58,7 @@ export default class ShowCompany extends Component {
     }
   };
   render() {
+    console.log(this.state.mentors);
     return (
       <div>
         <section>

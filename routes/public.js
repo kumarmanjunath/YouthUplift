@@ -40,6 +40,6 @@ router
   .route("/:publicId")
   .get(protect, getPublic)
   .put(protect, updatePublic)
-  .delete(protect, deletePublic);
+  .delete(protect, authorize("user", "admin"), deletePublic);
 
 module.exports = router;

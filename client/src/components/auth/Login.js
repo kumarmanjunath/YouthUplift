@@ -3,7 +3,7 @@ import axios from "axios";
 // import Navbar from "../Navbar";
 import React, { Component, Fragment } from "react";
 import { Redirect, Link } from "react-router-dom";
-import "../../Signup.css";
+import "./Signup.css";
 
 // import { Alert } from "reactstrap";
 class Login extends Component {

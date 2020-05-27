@@ -93,10 +93,13 @@ exports.updateMentor = asyncHandler(async (req, res, next) => {
 //@route  DELETE /api/v1/mentors/:id
 //@access  Private
 exports.deleteMentor = asyncHandler(async (req, res, next) => {
-  const mentor = await Mentor.findById(req.params.id);
+  const mentor = await Mentor.findById(req.params.mentorId);
   if (!mentor) {
     return next(
-      new ErrorResponse(`Mentor not found with id of ${req.params.id}`, 404)
+      new ErrorResponse(
+        `Mentor not found with id of ${req.params.mentorId}`,
+        404
+      )
     );
   }
 
@@ -104,7 +107,7 @@ exports.deleteMentor = asyncHandler(async (req, res, next) => {
   if (mentor.user.toString() !== req.user.id && req.user.role !== "admin") {
     return next(
       new ErrorResponse(
-        `User ${req.params.id} is not authorized to delete this mentor`,
+        `User ${req.params.mentorId} is not authorized to delete this mentor`,
         401
       )
     );

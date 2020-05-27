@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 import { Redirect, Link } from "react-router-dom";
-// import "../../Signup.css";
+import "./Signup.css";
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -166,23 +166,24 @@ class Register extends Component {
                   <div class='input'>
                     <div class='input-addon'>
                       <i class='fa fa-address-card' aria-hidden='true'></i>
-
-                      <input
-                        id='address'
-                        placeholder='Enter Address'
-                        name='address'
-                        type='text'
-                        required
-                        class='validate'
-                        autocomplete='off'
-                        value={this.state.address}
-                        onChange={this.handleInputChange}
-                        required
-                      />
                     </div>
+                    <input
+                      id='address'
+                      placeholder='Enter Address'
+                      name='address'
+                      type='text'
+                      required
+                      class='validate'
+                      autocomplete='off'
+                      value={this.state.address}
+                      onChange={this.handleInputChange}
+                      required
+                    />
                   </div>
 
                   <div class='clearfix'></div>
+
+                  <br />
 
                   {/* <div class='input'>
                     <div class='input-addon'>
@@ -202,13 +203,13 @@ class Register extends Component {
                     />
                   </div> */}
 
-                  <div class='remember-me'>
+                  {/* <div class='remember-me'>
                     <input type='checkbox' />
                     <span style={{ color: "#DDD" }}>
                       {" "}
                       I accept Terms of Service
                     </span>
-                  </div>
+                  </div> */}
 
                   <input type='submit' value='Register' />
                 </form>

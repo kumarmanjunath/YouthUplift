@@ -23,6 +23,7 @@ const users = require("./routes/users");
 const public = require("./routes/public");
 const reviews = require("./routes/reviews");
 const category = require("./routes/category");
+const articles = require("./routes/article");
 
 const app = express();
 
@@ -51,6 +52,7 @@ app.use("/api/v1/users", users);
 app.use("/api/v1/public", public);
 app.use("/api/v1/reviews", reviews);
 app.use("/api/v1/category", category);
+app.use("/api/v1/articles", articles);
 
 app.use(errorHandler);
 

@@ -173,7 +173,7 @@ function Homepage() {
             </div>
           </div>
 
-          <div className='text-center mt-4'>
+          {/* <div className='text-center mt-4'>
             <a
               className='btn btn-xl btn-outline-light'
               href='https://startbootstrap.com/themes/freelancer/'
@@ -181,10 +181,10 @@ function Homepage() {
               <i className='fa fa-download mr-2'></i>
               Free Download!
             </a>
-          </div>
+          </div> */}
         </div>
       </section>
-      <section className='page-section bg-dark text-white mb-0' id='contact'>
+      {/* <section className='page-section bg-dark text-white mb-0' id='contact'>
         <div className='container'>
           <h2 className='page-section-heading text-center text-uppercase text-white mb-0'>
             Contact Me
@@ -272,7 +272,7 @@ function Homepage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <footer className='footer text-center'>
         <div className='container'>
           <div className='row'>

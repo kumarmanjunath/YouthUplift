@@ -138,7 +138,7 @@ export default class Navbar extends Component {
         <a
           type='button'
           className='btn  navbar-toggle-box-collapse d-none d-md-block '
-          href='/login/mentor'
+          href='/'
           title='Profile'
         >
           <span
@@ -190,7 +190,7 @@ export default class Navbar extends Component {
                 </a>
               </li>
 
-              <li
+              {/* <li
                 className='nav-item dropdown'
                 style={{ marginLeft: "150px", marginTop: "-5px" }}
               >
@@ -206,11 +206,11 @@ export default class Navbar extends Component {
                   <a className='dropdown-item' href='/mentor/addMentors'>
                     Add Mentor
                   </a>
-                  <a className='dropdown-item' href='/mentor/showMentorsdet'>
+                  <a className='dropdown-item' href='/mentor/showMentors'>
                     Show Mentor
                   </a>
                 </div>
-              </li>
+              </li> */}
             </ul>
           </div>
 

@@ -36,8 +36,11 @@ export default class addDonors extends Component {
       // console.log("Can't load the items");
     }
   };
-  onDeleteUser = async (_id, e) => {
-    e.preventDefault();
+  onDeleteUser = async (_id) => {
+    // e.preventDefault();
+    console.log("Inside Delete");
+    console.log(this.state.mentor._id);
+    const userId = this.state.mentor._id;
     // console.log(user);
     const token = sessionStorage.getItem("token");
     const config = {
@@ -48,9 +51,12 @@ export default class addDonors extends Component {
     };
 
     try {
-      await axios.delete(`http://localhost:5000/api/v1/mentors/${_id}`, config);
+      await axios.delete(
+        `http://localhost:5000/api/v1/mentors/${userId}`,
+        config
+      );
 
-      alert("User Deleted");
+      alert("Mentor Details Deleted");
     } catch (err) {
       console.log("Can't load the items");
     }
@@ -189,13 +195,21 @@ export default class addDonors extends Component {
                         </div>
                       </div>
                       <div className='card-footer'>
-                        <button
+                        {/* <button
                           class='btn btn-secondary btn-lg btn-block'
                           type='submit'
+                          onClick={this.onDeleteUser()}
                         >
                           {" "}
-                          Edit
-                        </button>
+                          Delete
+                        </button> */}
+                        <a
+                          href=''
+                          className='btn btn-danger btn-md mr-5'
+                          onClick={(e) => this.onDeleteUser("_id")}
+                        >
+                          <i className='fa fa-trash-o'>Delete</i>
+                        </a>
                       </div>
                     </form>
                   </div>

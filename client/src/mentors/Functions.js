@@ -9,9 +9,10 @@ import AdminNavbar from "./AdminNavbar";
 import addMentors from "./addItem";
 import showMentors from "./showI";
 import Forgotpasswrd from "../components/auth/Forgotpsswrd";
-import editMentor from "./EditDoctor";
+import editMentor from "./EditMentor";
 import Footer from "./Footer";
 import showmentordet from "../mentors/showmentordet";
+import mentorpublish from "./MentorPublish/MentorPublishComponent";
 
 // import Prof from "./Prof";
 // import ProfileEdit from "./ProfileEdit";
@@ -86,11 +87,13 @@ class App extends React.Component {
             {/* <Route exact path={"/doctor/Home"} component={AdminHome} /> */}
             {/* <Route path={"/vendor/fsignup"} component={fRegistration} /> */}
             <Route path={"/mentor/addMentors"} component={addMentors} />
+            <Route path={"/mentor/publish"} component={mentorpublish} />
 
             <Route path={"/mentor/showMentors"} component={showMentors} />
             <Route path={"/mentor/edit"} component={editMentor} />
             <Route path={"/reset"} component={Forgotpasswrd} />
-            <Route path={"/mentor/showMentorsdet"} component={showmentordet} />
+
+            {/* <Route path={"/mentor/showMentorsdet"} component={showmentordet} /> */}
 
             {/* <Route path={"/doctor/Profile"} component={Prof} /> */}
             {/* <Route path={"/doctor/ProfileEdit"} component={ProfileEdit} /> */}

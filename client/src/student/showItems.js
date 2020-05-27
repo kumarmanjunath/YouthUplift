@@ -32,18 +32,25 @@ export default class showItems extends Component {
 
               <h4>{address}</h4>
 
-              <button
+              <Link
                 type='button'
                 className='btn btn-secondary'
                 title='Quick Shop'
-                data-toggle='modal'
-                data-target='#quickModel'
+                // data-toggle='modal'
+                // data-target='#quickModel'
+                to={{
+                  pathname: "/user/ShowMentor",
+                  state: {
+                    men: this.state.men,
+                    cat: this.state.profession,
+                  },
+                }}
               >
-                Book Appointment
-              </button>
+                Connect
+              </Link>
             </div>
-            <div className='overlay'>
-              <Link
+            {/* <div className='overlay'> */}
+            {/* <Link
                 type='button'
                 className='btn btn-secondary'
                 title='Quick Shop'
@@ -56,9 +63,9 @@ export default class showItems extends Component {
                 }}
               >
                 <i className='fa fa-eye'></i>
-              </Link>
+              </Link> */}
 
-              {/* <button
+            {/* <button
                 type="button"
                 className="btn btn-secondary"
                 title="Add to Cart"
@@ -67,7 +74,7 @@ export default class showItems extends Component {
               >
                 <i className="fa fa-shopping-cart"></i>
               </button> */}
-            </div>
+            {/* </div> */}
           </div>
           <div className='product-bottom text-center'></div>
         </div>
